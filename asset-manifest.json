@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/erikkostashukdev/static/css/main.4978fa88.css",
+    "main.js": "/erikkostashukdev/static/js/main.05dc26ff.js",
+    "static/js/453.0f42a2a4.chunk.js": "/erikkostashukdev/static/js/453.0f42a2a4.chunk.js",
+    "index.html": "/erikkostashukdev/index.html",
+    "main.4978fa88.css.map": "/erikkostashukdev/static/css/main.4978fa88.css.map",
+    "main.05dc26ff.js.map": "/erikkostashukdev/static/js/main.05dc26ff.js.map",
+    "453.0f42a2a4.chunk.js.map": "/erikkostashukdev/static/js/453.0f42a2a4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4978fa88.css",
+    "static/js/main.05dc26ff.js"
+  ]
+}
