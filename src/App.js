@@ -13,7 +13,6 @@ function App() {
       <div className="links">
         <a href="https://github.com/erikkostashuk" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://linkedin.com/in/erikkostashuk" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://devwitherik.com" target="_blank" rel="noopener noreferrer">Dev Blog</a>
       </div>
     </div>
   );
