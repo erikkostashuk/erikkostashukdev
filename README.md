@@ -1,2 +1,1 @@
-# erikkostashukdev
- erikkostashuk.dev
+# Personal Site
