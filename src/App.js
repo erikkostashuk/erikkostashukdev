@@ -1,6 +1,5 @@
-// src/App.js
 import React from 'react';
-import './App.css'; // We'll create this file for custom styles
+import './App.css';
 
 function App() {
   return (
