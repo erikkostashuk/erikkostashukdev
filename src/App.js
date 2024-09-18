@@ -8,6 +8,16 @@ function App() {
 
   // Load the YouTube IFrame API
   useEffect(() => {
+    // Called when the YouTube player is ready
+    const onPlayerReady = (event) => {
+      if (isMuted) {
+        event.target.mute();
+      } else {
+        event.target.unMute();
+      }
+      event.target.playVideo();
+    };
+
     // This function creates an <iframe> (and YouTube player) after the API code downloads
     window.onYouTubeIframeAPIReady = function() {
       const ytPlayer = new window.YT.Player('yt-player', {
@@ -30,17 +40,7 @@ function App() {
     tag.src = 'https://www.youtube.com/iframe_api';
     const firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  }, []);
-
-  // Called when the YouTube player is ready
-  const onPlayerReady = (event) => {
-    if (isMuted) {
-      event.target.mute();
-    } else {
-      event.target.unMute();
-    }
-    event.target.playVideo();
-  };
+  }, [isMuted]); // Add isMuted to the dependency array
 
   // Toggle mute state
   const toggleMute = () => {
