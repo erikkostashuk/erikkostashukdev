@@ -35,7 +35,7 @@
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 0; /* Set this below other elements */
+  z-index: -1; /* Set this to -1 to ensure it is behind all other elements */
   overflow: hidden;
 }
 
@@ -44,7 +44,7 @@
   position: absolute;
   width: 2px;
   height: 2px;
-  background-color: white; /* Changed to white */
+  background-color: white; /* Stars are white */
   border-radius: 50%;
   animation: twinkle 2s infinite alternate ease-in-out;
 }
@@ -56,7 +56,7 @@
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 2; /* Set this to 2 so the rain appears in front of the stars */
+  z-index: 0; /* Set this to 0 so the rain appears in front of the stars */
   overflow: hidden;
 }
 
@@ -86,7 +86,7 @@
   background-color: #c0c0c0; /* Light grey color for the moon */
   border-radius: 50%; /* Makes the shape circular */
   animation: moon-glow 2s infinite ease-in-out; /* Glow animation */
-  z-index: 3; /* Ensure it's above the rain */
+  z-index: 1; /* Ensure it's above the rain */
   transition: box-shadow 0.3s ease; /* Smooth transition for the glow effect */
 }
 
@@ -117,12 +117,13 @@
   font-family: 'Arial', sans-serif;
   color: #d3d3d3; /* Light grey text */
   position: relative;
-  z-index: 4; /* Ensure content is above everything */
+  z-index: 3; /* Ensure content is above everything */
 }
 
 .header {
   text-align: center;
   margin-bottom: 20px;
+  z-index: 3; /* Ensure header is above the stars */
 }
 
 h1 {
@@ -134,6 +135,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 3; /* Ensure links are above the stars */
 }
 
 .links a {
@@ -170,7 +172,7 @@ h1 {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  z-index: 5; /* Ensure it's above all other elements */
+  z-index: 3; /* Ensure it's above all other elements */
   transition: background-color 0.3s, box-shadow 0.3s ease;
   
   /* Center the icon */

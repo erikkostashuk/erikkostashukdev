@@ -5,6 +5,7 @@ function App() {
   // State to control audio muting
   const [isMuted, setIsMuted] = useState(true);
   const [player, setPlayer] = useState(null);
+  const [stars, setStars] = useState([]); // State to store stars
 
   // Load the YouTube IFrame API
   useEffect(() => {
@@ -71,20 +72,23 @@ function App() {
     );
   });
 
-  // Generate star elements
-  const stars = Array.from({ length: 100 }, (_, index) => {
-    return (
-      <div
-        key={index}
-        className="star"
-        style={{
-          top: `${Math.random() * 80}vh`, // Ensure stars are not too low in the sky
-          left: `${Math.random() * 100}vw`,
-          animationDelay: `${Math.random() * 2}s`,
-        }}
-      ></div>
-    );
-  });
+  // Generate star elements only once
+  useEffect(() => {
+    const generatedStars = Array.from({ length: 100 }, (_, index) => {
+      return (
+        <div
+          key={index}
+          className="star"
+          style={{
+            top: `${Math.random() * 80}vh`, // Ensure stars are not too low in the sky
+            left: `${Math.random() * 100}vw`,
+            animationDelay: `${Math.random() * 2}s`,
+          }}
+        ></div>
+      );
+    });
+    setStars(generatedStars);
+  }, []); // Empty dependency array to run only once
 
   return (
     <div className="app">
