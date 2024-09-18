@@ -71,6 +71,21 @@ function App() {
     );
   });
 
+  // Generate star elements
+  const stars = Array.from({ length: 100 }, (_, index) => {
+    return (
+      <div
+        key={index}
+        className="star"
+        style={{
+          top: `${Math.random() * 80}vh`, // Ensure stars are not too low in the sky
+          left: `${Math.random() * 100}vw`,
+          animationDelay: `${Math.random() * 2}s`,
+        }}
+      ></div>
+    );
+  });
+
   return (
     <div className="app">
       {/* YouTube player */}
@@ -90,6 +105,11 @@ function App() {
         {raindrops}
       </div>
       
+      {/* Stars container */}
+      <div className="star-container">
+        {stars}
+      </div>
+
       <div className="header">
         <h1>Erik Kostashuk</h1>
         <h3>Software Developer</h3>

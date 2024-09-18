@@ -18,6 +18,37 @@
   }
 }
 
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Star container */
+.star-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0; /* Set this below other elements */
+  overflow: hidden;
+}
+
+/* Star elements */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: white; /* Changed to white */
+  border-radius: 50%;
+  animation: twinkle 2s infinite alternate ease-in-out;
+}
+
 .rain-container {
   position: fixed;
   top: 0;
@@ -25,7 +56,7 @@
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 2; /* Set this to 2 so the rain appears in front of the grass */
+  z-index: 2; /* Set this to 2 so the rain appears in front of the stars */
   overflow: hidden;
 }
 
@@ -162,4 +193,3 @@ h1 {
   top: -1000px;
   left: -1000px;
 }
-
