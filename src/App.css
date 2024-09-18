@@ -1,27 +1,97 @@
 /* src/App.css */
+
+@keyframes rain {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes moon-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.5);
+  }
+}
+
+.rain-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 2; /* Set this to 2 so the rain appears in front of the grass */
+  overflow: hidden;
+}
+
+/* Raindrops with different light blue shades */
+.raindrop {
+  position: absolute;
+  width: 2px;
+  height: 20px;
+  animation: rain linear infinite;
+}
+
+.raindrop.light-blue {
+  background: rgba(173, 216, 230, 0.7); /* Light blue raindrops */
+}
+
+.raindrop.lighter-blue {
+  background: rgba(192, 232, 250, 0.7); /* Slightly lighter blue raindrops */
+}
+
+/* Moon */
+.moon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 80px; /* Size of the moon */
+  height: 80px;
+  background-color: #c0c0c0; /* Light grey color for the moon */
+  border-radius: 50%; /* Makes the shape circular */
+  animation: moon-glow 2s infinite ease-in-out; /* Glow animation */
+  z-index: 3; /* Ensure it's above the rain */
+  transition: box-shadow 0.3s ease; /* Smooth transition for the glow effect */
+}
+
+/* Moon hover effect */
+.moon:hover {
+  box-shadow: 0 0 40px rgba(255, 255, 255, 1); /* Stronger glow on hover */
+}
+
+/* Grass at the bottom */
+.grass {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 20vh; /* 20% of the viewport height */
+  background-color: #013220; /* Dark green color for the grass */
+  z-index: 1; /* Set this to 1 so the grass stays behind the rain */
+}
+
+/* App layout */
 .app {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #f5f5f5; /* Light grey background */
+  background-color: #0d1b2a; /* Cool nighttime blue */
   font-family: 'Arial', sans-serif;
-  color: #333; /* Dark text color */
+  color: #d3d3d3; /* Light grey text */
+  position: relative;
+  z-index: 4; /* Ensure content is above everything */
 }
 
 .header {
   text-align: center;
   margin-bottom: 20px;
-}
-
-.profile-picture {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%; /* Makes the image circular */
-  object-fit: cover;
-  border: 3px solid #333; /* Border around the profile picture */
-  margin-bottom: 10px;
 }
 
 h1 {
@@ -41,14 +111,55 @@ h1 {
   max-width: 300px;
   padding: 10px 20px;
   margin: 10px 0;
-  background-color: #333;
-  color: #fff;
+  background-color: #3a3a3a; /* Light grey buttons */
+  color: #d3d3d3; /* Light grey text */
   text-decoration: none;
   text-align: center;
   border-radius: 5px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, box-shadow 0.3s ease; /* Smooth transition */
 }
 
+/* Buttons hover effect */
 .links a:hover {
-  background-color: #555; /* Darker grey on hover */
+  background-color: #555; /* Slightly darker grey on hover */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* Glow effect */
 }
+
+/* Audio control button */
+.audio-control {
+  font-size: 20px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px; /* Set a fixed width */
+  height: 50px; /* Set a fixed height */
+  padding: 0; /* Remove padding to avoid extra space */
+  background-color: #3a3a3a; /* Light grey */
+  color: #d3d3d3; /* Light grey text */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 5; /* Ensure it's above all other elements */
+  transition: background-color 0.3s, box-shadow 0.3s ease;
+  
+  /* Center the icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover effect for audio control button */
+.audio-control:hover {
+  background-color: #555; /* Slightly darker grey */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* Glow effect */
+}
+
+/* YouTube player */
+.youtube-player {
+  display: none; /* Hide the iframe visually */
+  /* You can position the iframe offscreen if you want to ensure it plays */
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+}
+
