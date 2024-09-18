@@ -5,7 +5,7 @@ function App() {
   // State to control audio muting
   const [isMuted, setIsMuted] = useState(true);
   const [player, setPlayer] = useState(null);
-  const [stars, setStars] = useState([]); // State to store stars
+  const [stars, setStars] = useState([]);
 
   // Load the YouTube IFrame API
   useEffect(() => {
@@ -22,14 +22,14 @@ function App() {
     // This function creates an <iframe> (and YouTube player) after the API code downloads
     window.onYouTubeIframeAPIReady = function() {
       const ytPlayer = new window.YT.Player('yt-player', {
-        videoId: 'f02mOEt11OQ', // Replace with your YouTube video ID
+        videoId: 'f02mOEt11OQ',
         events: {
           onReady: onPlayerReady,
         },
         playerVars: {
           autoplay: 1,
           loop: 1,
-          playlist: 'f02mOEt11OQ', // Needed for looping
+          playlist: 'f02mOEt11OQ',
           mute: 1,
         },
       });
@@ -41,7 +41,7 @@ function App() {
     tag.src = 'https://www.youtube.com/iframe_api';
     const firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  }, [isMuted]); // Add isMuted to the dependency array
+  }, [isMuted]);
 
   // Toggle mute state
   const toggleMute = () => {
@@ -57,7 +57,6 @@ function App() {
 
   // Generate raindrop elements with random colors
   const raindrops = Array.from({ length: 50 }, (_, index) => {
-    // Randomly assign a class for color
     const raindropClass = Math.random() < 0.5 ? 'raindrop light-blue' : 'raindrop lighter-blue';
     return (
       <div
@@ -80,7 +79,7 @@ function App() {
           key={index}
           className="star"
           style={{
-            top: `${Math.random() * 80}vh`, // Ensure stars are not too low in the sky
+            top: `${Math.random() * 80}vh`,
             left: `${Math.random() * 100}vw`,
             animationDelay: `${Math.random() * 2}s`,
           }}
@@ -88,7 +87,7 @@ function App() {
       );
     });
     setStars(generatedStars);
-  }, []); // Empty dependency array to run only once
+  }, []);
 
   return (
     <div className="app">

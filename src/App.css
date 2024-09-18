@@ -52,7 +52,7 @@
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 2; /* Set this to 2 so the rain appears in front of the grass */
+  z-index: 2;
   overflow: hidden;
 }
 
