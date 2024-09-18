@@ -1,5 +1,3 @@
-/* src/App.css */
-
 @keyframes rain {
   0% {
     transform: translateY(0);
@@ -27,7 +25,6 @@
   }
 }
 
-/* Star container */
 .star-container {
   position: fixed;
   top: 0;
@@ -35,16 +32,15 @@
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: -1; /* Set this to -1 to ensure it is behind all other elements */
+  z-index: -1;
   overflow: hidden;
 }
 
-/* Star elements */
 .star {
   position: absolute;
   width: 2px;
   height: 2px;
-  background-color: white; /* Stars are white */
+  background-color: white;
   border-radius: 50%;
   animation: twinkle 2s infinite alternate ease-in-out;
 }
@@ -56,11 +52,10 @@
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 0; /* Set this to 0 so the rain appears in front of the stars */
+  z-index: 2; /* Set this to 2 so the rain appears in front of the grass */
   overflow: hidden;
 }
 
-/* Raindrops with different light blue shades */
 .raindrop {
   position: absolute;
   width: 2px;
@@ -69,61 +64,57 @@
 }
 
 .raindrop.light-blue {
-  background: rgba(173, 216, 230, 0.7); /* Light blue raindrops */
+  background: rgba(173, 216, 230, 0.7);
 }
 
 .raindrop.lighter-blue {
-  background: rgba(192, 232, 250, 0.7); /* Slightly lighter blue raindrops */
+  background: rgba(192, 232, 250, 0.7);
 }
 
-/* Moon */
 .moon {
   position: absolute;
   top: 20px;
   left: 20px;
-  width: 80px; /* Size of the moon */
+  width: 80px;
   height: 80px;
-  background-color: #c0c0c0; /* Light grey color for the moon */
-  border-radius: 50%; /* Makes the shape circular */
-  animation: moon-glow 2s infinite ease-in-out; /* Glow animation */
-  z-index: 1; /* Ensure it's above the rain */
-  transition: box-shadow 0.3s ease; /* Smooth transition for the glow effect */
+  background-color: #c0c0c0;
+  border-radius: 50%;
+  animation: moon-glow 2s infinite ease-in-out;
+  z-index: 1;
+  transition: box-shadow 0.3s ease;
 }
 
-/* Moon hover effect */
 .moon:hover {
-  box-shadow: 0 0 40px rgba(255, 255, 255, 1); /* Stronger glow on hover */
+  box-shadow: 0 0 40px rgba(255, 255, 255, 1);
 }
 
-/* Grass at the bottom */
 .grass {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: 20vh; /* 20% of the viewport height */
-  background-color: #013220; /* Dark green color for the grass */
-  z-index: 1; /* Set this to 1 so the grass stays behind the rain */
+  height: 20vh;
+  background-color: #013220;
+  z-index: 1;
 }
 
-/* App layout */
 .app {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #0d1b2a; /* Cool nighttime blue */
+  background-color: #0d1b2a;
   font-family: 'Arial', sans-serif;
-  color: #d3d3d3; /* Light grey text */
+  color: #d3d3d3;
   position: relative;
-  z-index: 3; /* Ensure content is above everything */
+  z-index: 3;
 }
 
 .header {
   text-align: center;
   margin-bottom: 20px;
-  z-index: 3; /* Ensure header is above the stars */
+  z-index: 3;
 }
 
 h1 {
@@ -135,7 +126,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 3; /* Ensure links are above the stars */
+  z-index: 3;
 }
 
 .links a {
@@ -144,53 +135,47 @@ h1 {
   max-width: 300px;
   padding: 10px 20px;
   margin: 10px 0;
-  background-color: #3a3a3a; /* Light grey buttons */
-  color: #d3d3d3; /* Light grey text */
+  background-color: #3a3a3a;
+  color: #d3d3d3;
   text-decoration: none;
   text-align: center;
   border-radius: 5px;
-  transition: background-color 0.3s, box-shadow 0.3s ease; /* Smooth transition */
+  transition: background-color 0.3s, box-shadow 0.3s ease;
 }
 
-/* Buttons hover effect */
 .links a:hover {
-  background-color: #555; /* Slightly darker grey on hover */
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* Glow effect */
+  background-color: #555;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
 }
 
-/* Audio control button */
 .audio-control {
   font-size: 20px;
   position: absolute;
   top: 20px;
   right: 20px;
-  width: 50px; /* Set a fixed width */
-  height: 50px; /* Set a fixed height */
-  padding: 0; /* Remove padding to avoid extra space */
-  background-color: #3a3a3a; /* Light grey */
-  color: #d3d3d3; /* Light grey text */
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  background-color: #3a3a3a;
+  color: #d3d3d3;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  z-index: 3; /* Ensure it's above all other elements */
+  z-index: 3;
   transition: background-color 0.3s, box-shadow 0.3s ease;
   
-  /* Center the icon */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Hover effect for audio control button */
 .audio-control:hover {
-  background-color: #555; /* Slightly darker grey */
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* Glow effect */
+  background-color: #555;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
 }
 
-/* YouTube player */
 .youtube-player {
-  display: none; /* Hide the iframe visually */
-  /* You can position the iframe offscreen if you want to ensure it plays */
+  display: none;
   position: absolute;
   top: -1000px;
   left: -1000px;
