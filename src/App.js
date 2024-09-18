@@ -100,7 +100,7 @@ function App() {
       </button>
 
       {/* Moon element as a link */}
-      <a href="https://erikkostashuk.dev" target="_blank" rel="noopener noreferrer">
+      <a href="https://erikkostashuk.dev" rel="noopener noreferrer">
         <div className="moon"></div>
       </a>
 
