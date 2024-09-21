@@ -37,8 +37,7 @@ const YouTubePlayer = ({ isMuted }) => {
 
   const onPlayerReady = (event) => {
     event.target.playVideo();
-  };
-
+  }
   return <div id="yt-player" className="youtube-player"></div>;
 };
 
