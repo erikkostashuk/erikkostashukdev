@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Raindrops = () => {
+const Raindrops = ({ isDay }) => {
   const raindrops = Array.from({ length: 50 }, (_, index) => {
     const raindropClass = Math.random() < 0.5 ? 'raindrop light-blue' : 'raindrop lighter-blue';
     return (
@@ -16,7 +16,7 @@ const Raindrops = () => {
     );
   });
 
-  return <div className="rain-container">{raindrops}</div>;
+  return <div className="rain-container" style={{ display: isDay ? 'none' : 'block' }}>{raindrops}</div>;
 };
 
 export default Raindrops;

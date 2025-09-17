@@ -88,6 +88,15 @@
   box-shadow: 0 0 40px rgba(255, 255, 255, 1);
 }
 
+.moon.sun {
+  background-color: #FFD700;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 215, 0, 0.5);
+}
+
+.moon.sun:hover {
+  box-shadow: 0 0 50px rgba(255, 215, 0, 1);
+}
+
 .grass {
   position: fixed;
   bottom: 0;
@@ -179,6 +188,102 @@ h1 {
   position: absolute;
   top: -1000px;
   left: -1000px;
+}
+
+.theme-control {
+  font-size: 20px;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  background-color: #3a3a3a;
+  color: #d3d3d3;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 3;
+  transition: background-color 0.3s, box-shadow 0.3s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-control:hover {
+  background-color: #555;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+
+.day {
+  background-color: #87CEEB;
+  color: #333;
+}
+
+.day .grass {
+  background-color: #228B22;
+}
+
+.day .header h1,
+.day .header p,
+.day .links a {
+  color: #333;
+}
+
+.day .links a {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.day .links a:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.day .audio-control,
+.day .theme-control {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333;
+}
+
+.day .audio-control:hover,
+.day .theme-control:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.cloud-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 60vh;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.cloud {
+  position: absolute;
+  background-color: white;
+  border-radius: 100px;
+  filter: blur(2px);
+}
+
+.cloud-part {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  filter: blur(1px);
+}
+
+@keyframes float {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(100vw + 200px));
+  }
 }
 
 .campfire-container {
@@ -355,5 +460,248 @@ h1 {
   50% {
     opacity: 1;
     transform: translateX(-50%) scale(1.1);
+  }
+}
+
+.barn-container {
+  position: fixed;
+  bottom: 20vh;
+  left: 50%;
+  transform: translateX(-400px);
+  z-index: 2;
+  display: none;
+}
+
+.day .barn-container {
+  display: block;
+}
+
+.barn {
+  position: relative;
+  width: 100px;
+  height: 80px;
+}
+
+.barn-base {
+  position: absolute;
+  bottom: 0;
+  width: 100px;
+  height: 60px;
+  background-color: #DC143C;
+  border: 2px solid #8B0000;
+}
+
+.barn-roof {
+  position: absolute;
+  bottom: 60px;
+  left: -10px;
+  width: 0;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-bottom: 40px solid #8B0000;
+}
+
+.barn-door {
+  position: absolute;
+  bottom: 0;
+  left: 35px;
+  width: 30px;
+  height: 40px;
+  background-color: #8B4513;
+  border: 2px solid #654321;
+  border-radius: 15px 15px 0 0;
+}
+
+.barn-window {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: #87CEEB;
+  border: 2px solid #654321;
+  border-radius: 50%;
+}
+
+.barn-window-left {
+  top: 15px;
+  left: 15px;
+}
+
+.barn-window-right {
+  top: 15px;
+  right: 15px;
+}
+
+.barn-silo {
+  position: absolute;
+  bottom: 0;
+  right: -25px;
+  width: 20px;
+  height: 70px;
+  background: linear-gradient(to right, #DC143C, #B22222);
+  border: 2px solid #8B0000;
+  border-radius: 10px 10px 0 0;
+}
+
+.windmill-container {
+  position: fixed;
+  bottom: 20vh;
+  left: 50%;
+  transform: translateX(-280px);
+  z-index: 2;
+  display: none;
+}
+
+.day .windmill-container {
+  display: block;
+}
+
+.windmill {
+  position: relative;
+  width: 40px;
+  height: 100px;
+}
+
+.windmill-tower {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 80px;
+  background: linear-gradient(to right, #FFF, #F5F5F5);
+  border: 1px solid #DDD;
+}
+
+.windmill-blades {
+  position: absolute;
+  bottom: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  animation: spin 8s linear infinite;
+  z-index: 3;
+}
+
+.blade {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  width: 4px;
+  height: 30px;
+  background-color: #FFF;
+  border: 1px solid #DDD;
+  transform-origin: center bottom;
+}
+
+.blade1 {
+  transform: translateX(-50%) rotate(0deg);
+}
+
+.blade2 {
+  transform: translateX(-50%) rotate(90deg);
+}
+
+.blade3 {
+  transform: translateX(-50%) rotate(180deg);
+}
+
+.blade4 {
+  transform: translateX(-50%) rotate(270deg);
+}
+
+.windmill-cap {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15px;
+  height: 10px;
+  background-color: #8B4513;
+  border-radius: 5px 5px 0 0;
+}
+
+@keyframes spin {
+  from {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+.airplane {
+  position: fixed;
+  top: 15%;
+  right: -60px;
+  width: 40px;
+  height: 25px;
+  z-index: 2;
+  animation: fly 15s linear;
+}
+
+.airplane-cloud {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 50px;
+  filter: blur(3px);
+  opacity: 0.9;
+}
+
+.airplane-cloud::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 5px;
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  border-radius: 50%;
+  filter: blur(2px);
+}
+
+.airplane-cloud::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  filter: blur(2px);
+}
+
+.trail-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.trail-segment {
+  border-radius: 50px;
+  filter: blur(4px);
+}
+
+.night .airplane-cloud,
+.night .airplane-cloud::before,
+.night .airplane-cloud::after,
+.night .trail-segment {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+@keyframes fly {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100vw - 200px));
   }
 }
