@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Campfire = () => {
+const Campfire = ({ isDay }) => {
   return (
-    <div className="campfire-container">
+    <div className="campfire-container" style={{ display: isDay ? 'none' : 'block' }}>
       <div className="campfire">
         <div className="wood"></div>
         <div className="wood wood2"></div>

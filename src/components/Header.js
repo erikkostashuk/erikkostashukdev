@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header = () => {
+const Header = ({ isDay }) => {
   return (
     <div className="header">
       <h1>Erik Kostashuk</h1>

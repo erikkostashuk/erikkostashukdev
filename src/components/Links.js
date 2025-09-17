@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Links = () => {
+const Links = ({ isDay }) => {
   return (
     <div className="links">
       <a href="https://github.com/erikkostashuk" target="_blank" rel="noopener noreferrer">GitHub</a>

@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 
-const Stars = () => {
+const Stars = ({ isDay }) => {
   const stars = useMemo(() => {
     return Array.from({ length: 100 }, (_, index) => {
       return (
@@ -17,7 +17,7 @@ const Stars = () => {
     });
   }, []);
 
-  return <div className="star-container">{stars}</div>;
+  return <div className="star-container" style={{ display: isDay ? 'none' : 'block' }}>{stars}</div>;
 };
 
 export default Stars;
