@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Clouds = ({ isDay }) => {
   const [clouds, setClouds] = useState([]);
@@ -32,7 +32,6 @@ const Clouds = ({ isDay }) => {
       const cloud = generateCloud(i);
       // Position clouds at different stages of their journey from left to right
       const progress = (i / 5) * 0.8; // Spread them across 80% of the screen
-      const screenPosition = progress * 100; // Convert to percentage
 
       return {
         ...cloud,
