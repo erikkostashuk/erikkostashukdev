@@ -6,6 +6,7 @@ import Moon from './components/Moon';
 import Raindrops from './components/Raindrops';
 import Stars from './components/Stars';
 import YouTubePlayer from './components/YouTubePlayer';
+import Campfire from './components/Campfire';
 
 function App() {
   const [isMuted, setIsMuted] = useState(true);
@@ -25,6 +26,7 @@ function App() {
       <Stars />
       <Header />
       <Links />
+      <Campfire />
       <div className="grass"></div>
     </div>
   );
