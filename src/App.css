@@ -140,8 +140,8 @@ h1 {
 
 .links a {
   display: block;
-  width: 80%;
-  max-width: 300px;
+  width: 90%;
+  max-width: 350px;
   padding: 10px 20px;
   margin: 10px 0;
   background-color: #3a3a3a;
@@ -160,8 +160,8 @@ h1 {
 
 .resume-button {
   display: block;
-  width: 80%;
-  max-width: 300px;
+  width: 90%;
+  max-width: 350px;
   padding: 10px 20px;
   margin: 10px 0;
   background-color: #3a3a3a;
