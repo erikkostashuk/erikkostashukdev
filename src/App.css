@@ -157,6 +157,29 @@ h1 {
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
 }
 
+.resume-button {
+  display: block;
+  width: 80%;
+  max-width: 300px;
+  padding: 10px 20px;
+  margin: 10px 0;
+  background-color: #3a3a3a;
+  color: #d3d3d3;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Arial', sans-serif;
+  font-size: inherit;
+  transition: background-color 0.3s, box-shadow 0.3s ease;
+}
+
+.resume-button:hover {
+  background-color: #555;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+
 .audio-control {
   font-size: 20px;
   position: absolute;
@@ -236,6 +259,16 @@ h1 {
 }
 
 .day .links a:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.day .resume-button {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333;
+}
+
+.day .resume-button:hover {
   background-color: rgba(255, 255, 255, 0.9);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
