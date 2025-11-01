@@ -1006,6 +1006,21 @@ h1 {
   color: #555;
 }
 
+@media (max-height: 900px) {
+  .app {
+    justify-content: flex-start;
+    min-height: 100vh;
+    height: auto;
+    padding: 60px 20px 80px 20px;
+    overflow-y: auto;
+  }
+
+  .header {
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+}
+
 @media (max-width: 768px) {
   .app {
     justify-content: flex-start;
