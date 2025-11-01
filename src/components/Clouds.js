@@ -4,11 +4,11 @@ const Clouds = ({ isDay }) => {
   const [clouds, setClouds] = useState([]);
 
   const generateCloud = (id) => {
-    const baseSize = 80 + Math.random() * 40; // Random size between 80-120px
-    const top = 5 + Math.random() * 40; // Random top position between 5-45% of viewport
-    const duration = 30 + Math.random() * 30; // Random duration between 30-60 seconds
-    const delay = Math.random() * 5; // Random start delay up to 5 seconds
-    const cloudType = Math.floor(Math.random() * 3); // 3 different cloud shapes
+    const baseSize = 80 + Math.random() * 40;
+    const top = 5 + Math.random() * 40;
+    const duration = 30 + Math.random() * 30;
+    const delay = Math.random() * 5;
+    const cloudType = Math.floor(Math.random() * 3);
 
     return {
       id,
@@ -16,7 +16,7 @@ const Clouds = ({ isDay }) => {
       top,
       duration,
       delay,
-      opacity: 0.6 + Math.random() * 0.3, // Random opacity between 0.6-0.9
+      opacity: 0.6 + Math.random() * 0.3,
       cloudType
     };
   };
@@ -27,30 +27,24 @@ const Clouds = ({ isDay }) => {
       return;
     }
 
-    // Generate initial clouds entering from the left at various stages
     const initialClouds = Array.from({ length: 6 }, (_, i) => {
       const cloud = generateCloud(i);
-      // Position clouds at different stages of their journey from left to right
-      const progress = (i / 5) * 0.8; // Spread them across 80% of the screen
+      const progress = (i / 5) * 0.8;
 
       return {
         ...cloud,
-        // Use negative delay to make them start mid-animation
         delay: -progress * cloud.duration
       };
     });
     setClouds(initialClouds);
 
-    // Add new clouds periodically
     const cloudInterval = setInterval(() => {
       setClouds(prev => {
-        // Remove clouds that have moved off screen
         const filtered = prev.filter(cloud => {
           const cloudElement = document.getElementById(`cloud-${cloud.id}`);
           return cloudElement && cloudElement.getBoundingClientRect().right > 0;
         });
 
-        // Add new cloud if we have less than 8 clouds
         if (filtered.length < 8) {
           return [...filtered, generateCloud(Date.now())];
         }
@@ -65,7 +59,6 @@ const Clouds = ({ isDay }) => {
     const s = cloud.baseSize;
 
     if (cloud.cloudType === 0) {
-      // Puffy cumulus cloud
       return (
         <>
           <div className="cloud-part" style={{ width: `${s * 0.6}px`, height: `${s * 0.6}px`, top: '0', left: `${s * 0.1}px` }}></div>
@@ -77,7 +70,6 @@ const Clouds = ({ isDay }) => {
         </>
       );
     } else if (cloud.cloudType === 1) {
-      // Wide stratocumulus cloud
       return (
         <>
           <div className="cloud-part" style={{ width: `${s * 0.5}px`, height: `${s * 0.5}px`, top: `${s * -0.1}px`, left: `${s * 0.05}px` }}></div>
@@ -88,7 +80,6 @@ const Clouds = ({ isDay }) => {
         </>
       );
     } else {
-      // Tall cumulonimbus-style cloud
       return (
         <>
           <div className="cloud-part" style={{ width: `${s * 0.7}px`, height: `${s * 0.7}px`, top: `${s * 0.1}px`, left: `${s * 0.15}px` }}></div>
