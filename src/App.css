@@ -1007,6 +1007,14 @@ h1 {
 }
 
 @media (max-width: 768px) {
+  .app {
+    justify-content: flex-start;
+    min-height: 100vh;
+    height: auto;
+    padding: 40px 0 80px 0;
+    overflow-y: auto;
+  }
+
   h1 {
     font-size: 1.3em;
   }
@@ -1080,6 +1088,10 @@ h1 {
   .windmill-container {
     display: none !important;
   }
+
+  .grass {
+    height: 8vh;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1144,5 +1156,9 @@ h1 {
   .theme-control {
     bottom: 10px;
     top: auto;
+  }
+
+  .grass {
+    height: 6vh;
   }
 }
