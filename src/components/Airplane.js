@@ -7,18 +7,15 @@ const Airplane = () => {
   const trailIntervalRef = useRef(null);
 
   useEffect(() => {
-    // Start airplane animation every 25 seconds
     const airplaneInterval = setInterval(() => {
       setIsVisible(true);
       setTrailSegments([]);
 
-      // Stop showing airplane after 15 seconds (flight time)
       setTimeout(() => {
         setIsVisible(false);
       }, 15000);
     }, 25000);
 
-    // Trigger first airplane immediately
     setIsVisible(true);
 
     return () => {
@@ -31,7 +28,6 @@ const Airplane = () => {
 
   useEffect(() => {
     if (isVisible) {
-      // Create trail segments
       let lastPosition = null;
       trailIntervalRef.current = setInterval(() => {
         if (airplaneRef.current) {
@@ -49,14 +45,12 @@ const Airplane = () => {
               endX: currentPosition.x,
               endY: currentPosition.y,
               opacity: 0.8,
-              width: Math.random() * 20 + 30 // Random width between 30-50px
+              width: Math.random() * 20 + 30
             };
 
             setTrailSegments(prev => {
-              // Keep only last 8 segments
               const updated = [...prev, newSegment].slice(-8);
 
-              // Update opacity of existing segments
               return updated.map((segment, index) => ({
                 ...segment,
                 opacity: Math.max(0, 0.8 - (index / updated.length) * 0.8)
@@ -68,7 +62,6 @@ const Airplane = () => {
         }
       }, 200);
     } else {
-      // Fade out trail when airplane is gone
       const fadeInterval = setInterval(() => {
         setTrailSegments(prev => {
           const updated = prev.map(segment => ({
@@ -98,7 +91,6 @@ const Airplane = () => {
 
   return (
     <>
-      {/* Airplane (looks like a small cloud) */}
       {isVisible && (
         <div
           ref={airplaneRef}
@@ -108,7 +100,6 @@ const Airplane = () => {
         </div>
       )}
 
-      {/* Trail */}
       <div className="trail-container">
         {trailSegments.map(segment => (
           <div

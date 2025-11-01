@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Links from './components/Links';
+import SideProjects from './components/SideProjects';
 import Moon from './components/Moon';
 import Raindrops from './components/Raindrops';
 import Stars from './components/Stars';
@@ -35,6 +36,7 @@ function App() {
       <Stars isDay={isDay} />
       <Header isDay={isDay} />
       <Links isDay={isDay} />
+      <SideProjects isDay={isDay} />
       <Barn />
       <Windmill />
       <Campfire isDay={isDay} />
