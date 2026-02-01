@@ -1,49 +1,61 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
-import Header from './components/Header';
-import Links from './components/Links';
-import SideProjects from './components/SideProjects';
-import Moon from './components/Moon';
-import Raindrops from './components/Raindrops';
-import Stars from './components/Stars';
-import YouTubePlayer from './components/YouTubePlayer';
-import Campfire from './components/Campfire';
-import Clouds from './components/Clouds';
-import Barn from './components/Barn';
-import Windmill from './components/Windmill';
 
-function App() {
-  const [isMuted, setIsMuted] = useState(true);
-  const [isDay, setIsDay] = useState(true);
+const Header = () => (
+  <header>
+    <h1>Erik Kostashuk</h1>
+    <p>
+      Software Developer at <a href="https://www.dialogue.co/" target="_blank" rel="noopener noreferrer">Dialogue</a>.
+    </p>
+    <p>
+      Previously at <a href="https://www.ssense.com" target="_blank" rel="noopener noreferrer">SSENSE</a>.
+    </p>
+    <p>Located in Toronto.</p>
+  </header>
+);
 
-  const toggleMute = () => {
-    setIsMuted(!isMuted);
-  };
+const Links = () => (
+  <section>
+    <h2>Links</h2>
+    <ul>
+      <li><a href="https://github.com/erikkostashuk" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      <li><a href="https://linkedin.com/in/erikkostashuk" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="mailto:erikkostashuk@gmail.com" target="_blank" rel="noopener noreferrer">Contact Me</a></li>
+      <li><a href="/resume.pdf" download="Erik_Kostashuk_Resume.pdf">Resume</a></li>
+    </ul>
+  </section>
+);
 
-  const toggleDayNight = () => {
-    setIsDay(!isDay);
-  };
+const SideProjects = () => {
+  const projects = [
+    { name: 'GeoClip.fun', description: 'A real-time video-powered geography guessing game', url: 'https://www.geoclip.fun/' },
+    { name: 'Quick Volume', description: 'Control individual Chrome tab volumes, boost beyond 100%', url: 'https://chromewebstore.google.com/detail/quick-volume/cnakfhhojlpnmnemfpndiligghlgjiij?authuser=0&hl=en' },
+    { name: 'Full Page Screenshot', description: 'Capture full-page screenshots with automatic scrolling and stitching', url: 'https://chromewebstore.google.com/detail/full-page-screenshot/bmfpkmjapdkpgdbbnjneadbcclnakcen?authuser=0&hl=en' },
+    { name: 'Simple Pomodoro', description: 'A straightforward Pomodoro timer for productivity', url: 'https://chromewebstore.google.com/detail/simple-pomodoro/bebgodohjfbcakianhmhjgopmepekcnk?authuser=0&hl=en' },
+    { name: 'Quick Paste', description: 'A lightweight clipboard history manager for macOS', url: 'https://quickpaste.netlify.app/' },
+    { name: 'AutoClicker for Mac', description: 'A simple autoclicker application for MacOS with a modern UI', url: 'https://github.com/erikkostashuk/autoclicker-for-mac' }
+  ];
 
   return (
-    <div className={`app ${isDay ? 'day' : 'night'}`}>
-      <YouTubePlayer isMuted={isMuted} />
-      <button className="audio-control" onClick={toggleMute}>
-        {isMuted ? '🔇' : '♪'}
-      </button>
-      <Moon isDay={isDay} />
-      <Clouds isDay={isDay} />
-      <Raindrops isDay={isDay} />
-      <Stars isDay={isDay} />
-      <Header isDay={isDay} />
-      <Links isDay={isDay} />
-      <SideProjects isDay={isDay} />
-      <Barn />
-      <Windmill />
-      <Campfire isDay={isDay} />
-      <button className="theme-control" onClick={toggleDayNight}>
-        {isDay ? '🌙' : '☀️'}
-      </button>
-      <div className="grass"></div>
+    <section>
+      <h2>Side Projects</h2>
+      <ul>
+        {projects.map((project, index) => (
+          <li key={index}>
+            <a href={project.url} target="_blank" rel="noopener noreferrer">{project.name}</a> - {project.description}
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+};
+
+function App() {
+  return (
+    <div className="app">
+      <Header />
+      <Links />
+      <SideProjects />
     </div>
   );
 }
