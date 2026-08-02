@@ -33,7 +33,9 @@ const SideProjects = () => {
     { name: 'Full Page Screenshot', description: 'Capture full-page screenshots with automatic scrolling and stitching', url: 'https://chromewebstore.google.com/detail/full-page-screenshot/bmfpkmjapdkpgdbbnjneadbcclnakcen?authuser=0&hl=en' },
     { name: 'Simple Pomodoro', description: 'A straightforward Pomodoro timer for productivity', url: 'https://chromewebstore.google.com/detail/simple-pomodoro/bebgodohjfbcakianhmhjgopmepekcnk?authuser=0&hl=en' },
     { name: 'Quick Paste', description: 'A lightweight clipboard history manager for macOS', url: 'https://quickpaste.netlify.app/' },
-    { name: 'AutoClicker for Mac', description: 'A simple autoclicker application for MacOS with a modern UI', url: 'https://github.com/erikkostashuk/autoclicker-for-mac' }
+    { name: 'AutoClicker for Mac', description: 'A simple autoclicker application for MacOS with a modern UI', url: 'https://github.com/erikkostashuk/autoclicker-for-mac' },
+    { name: 'NIBBIT', description: 'An arcade maze-chase game playable in the browser', url: 'https://nibbit.vercel.app/' },
+    { name: 'Pong', description: 'Single-player Pong against an AI opponent on an HTML5 canvas', url: 'https://pong-amber-one.vercel.app/' }
   ];
 
   return (
