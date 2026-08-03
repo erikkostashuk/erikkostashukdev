@@ -36,7 +36,8 @@ const SideProjects = () => {
     { name: 'AutoClicker for Mac', description: 'A simple autoclicker application for MacOS with a modern UI', url: 'https://github.com/erikkostashuk/autoclicker-for-mac' },
     { name: 'NIBBIT', description: 'An arcade maze-chase game playable in the browser', url: 'https://nibbit.vercel.app/' },
     { name: 'Pong', description: 'Single-player Pong against an AI opponent on an HTML5 canvas', url: 'https://pong-amber-one.vercel.app/' },
-    { name: 'Linkfile', description: 'An open-source link-in-bio page configured from a single JSON file', url: 'https://linkfile.vercel.app/' }
+    { name: 'Linkfile', description: 'An open-source link-in-bio page configured from a single JSON file', url: 'https://linkfile.vercel.app/' },
+    { name: 'GitChronicle', description: 'An open-source tool that turns a Git repository into a cinematic recap and engineering dashboard', url: 'https://gitchronicle.up.railway.app/' }
   ];
 
   return (
