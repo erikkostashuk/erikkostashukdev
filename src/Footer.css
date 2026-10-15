@@ -21,3 +21,10 @@
 .footer-symbol {
   color: var(--muted);
 }
+
+/* On phones the line is nearly full width, so leave room below it for the fixed music button */
+@media (max-width: 36rem) {
+  .footer {
+    padding-bottom: 4.25rem;
+  }
+}

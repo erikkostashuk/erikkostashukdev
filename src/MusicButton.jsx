@@ -4,6 +4,8 @@ import './MusicButton.css';
 // "Good Night - Lofi Cozy Chill Music" by FASSounds, from Pixabay
 // (Pixabay Content License: free to use, no attribution required)
 const TRACK_URL = '/lofi.m4a';
+const TRACK_TITLE = 'Good Night';
+const TRACK_ARTIST = 'FASSounds';
 const VOLUME = 0.5;
 
 const NoteIcon = () => (
@@ -26,6 +28,13 @@ const MusicButton = () => {
       audio.play().catch(() => {});
     } else {
       audio.pause();
+    }
+  }, []);
+
+  // Shown by lock screens and the OS media controls while the track plays
+  useEffect(() => {
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.metadata = new MediaMetadata({ title: TRACK_TITLE, artist: TRACK_ARTIST });
     }
   }, []);
 
@@ -55,6 +64,9 @@ const MusicButton = () => {
       >
         <NoteIcon />
       </button>
+      <p className={playing ? 'now-playing now-playing-visible' : 'now-playing'}>
+        {TRACK_TITLE} · {TRACK_ARTIST}
+      </p>
       {/* State follows the element, so pausing from the OS media controls stays in sync */}
       <audio
         ref={audioRef}

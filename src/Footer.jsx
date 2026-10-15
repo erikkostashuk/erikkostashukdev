@@ -4,6 +4,7 @@ import './Footer.css';
 const WEATHER_URL =
   'https://api.open-meteo.com/v1/forecast?latitude=43.65&longitude=-79.38&current=temperature_2m,weather_code,is_day';
 const WEATHER_REFRESH = 15 * 60 * 1000; // Open-Meteo updates current conditions every 15 minutes
+const REPO_URL = 'https://github.com/erikkostashuk/erikkostashukdev';
 
 const torontoTime = new Intl.DateTimeFormat('en-US', {
   hour: 'numeric',
@@ -72,6 +73,8 @@ const Footer = () => {
           </a>
         </>
       )}
+      {' · '}
+      <a href={REPO_URL} target="_blank" rel="noopener noreferrer">View source</a>
     </footer>
   );
 };
