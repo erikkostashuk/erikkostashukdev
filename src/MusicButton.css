@@ -1,0 +1,100 @@
+.music {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid var(--fg);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--fg);
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+/* The page's single pop of color */
+.music[aria-pressed='true'] {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* Two staggered rings ripple outward like sound waves while music plays */
+.music[aria-pressed='true']::before,
+.music[aria-pressed='true']::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: music-ripple 2.4s ease-out infinite;
+}
+
+.music[aria-pressed='true']::after {
+  animation-delay: 1.2s;
+}
+
+@keyframes music-ripple {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+.music:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 3px;
+}
+
+/* A couple of bounces shortly after load to invite a click */
+.music-bounce {
+  animation: music-bounce 1.2s ease 1.2s 2;
+}
+
+@keyframes music-bounce {
+  0%,
+  40%,
+  80% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  }
+
+  20% {
+    transform: translateY(-14px);
+    animation-timing-function: cubic-bezier(0.32, 0, 0.67, 0);
+  }
+
+  60% {
+    transform: translateY(-6px);
+    animation-timing-function: cubic-bezier(0.32, 0, 0.67, 0);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .music {
+    transition: none;
+  }
+
+  .music-bounce {
+    animation: none;
+  }
+
+  .music[aria-pressed='true']::before,
+  .music[aria-pressed='true']::after {
+    display: none;
+  }
+}

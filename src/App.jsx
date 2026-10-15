@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import MusicButton from './MusicButton';
 import NewsTicker from './NewsTicker';
 import './App.css';
 
@@ -99,6 +100,7 @@ function App() {
       </main>
       <Footer />
       <NewsTicker />
+      <MusicButton />
     </>
   );
 }
