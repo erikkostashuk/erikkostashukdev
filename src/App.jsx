@@ -9,7 +9,7 @@ const Header = () => (
       I’m a software developer in Toronto,
       currently at <a href="https://www.dialogue.co/" target="_blank" rel="noopener noreferrer">Dialogue</a> and
       previously at <a href="https://www.ssense.com" target="_blank" rel="noopener noreferrer">SSENSE</a>.
-      I mostly work on backend systems and enjoy writing TypeScript and Python.
+      I love building robust, scalable backend systems, especially in TypeScript and Python.
       You can reach me through the links below.
     </p>
   </header>
