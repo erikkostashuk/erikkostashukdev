@@ -1,11 +1,3 @@
-@font-face {
-  font-family: 'Old Standard TT';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('/fonts/old-standard-tt-400.woff2') format('woff2');
-}
-
 /* Rendered after <main> so the site's own content comes first for keyboard and
    screen reader users; positioned over the top padding so it never shifts the layout */
 .ticker {
@@ -17,7 +9,7 @@
   border-bottom: 1px solid var(--fg);
   background: var(--bg);
   color: var(--fg);
-  font-family: 'Old Standard TT', 'Times New Roman', Times, Georgia, serif;
+  font-family: var(--serif);
   font-size: 0.9375rem;
   line-height: 2.25rem;
   white-space: nowrap;

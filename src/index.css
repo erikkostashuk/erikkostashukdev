@@ -1,8 +1,17 @@
+@font-face {
+  font-family: 'Old Standard TT';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/old-standard-tt-400.woff2') format('woff2');
+}
+
 :root {
   --bg: #ffffff;
   --fg: #171717;
   --muted: #6b6b6b;
   --line: #d4d4d4;
+  --serif: 'Old Standard TT', 'Times New Roman', Times, Georgia, serif;
   color-scheme: light;
 }
 
@@ -26,6 +35,14 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Keeps the footer at the bottom of the screen when the page is shorter than it */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 h1,
