@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import './MusicButton.css';
 
 // "Good Night - Lofi Cozy Chill Music" by FASSounds, from Pixabay
@@ -17,7 +17,7 @@ const MusicButton = () => {
   const [playing, setPlaying] = useState(false);
   const [clicked, setClicked] = useState(false);
 
-  const toggle = () => {
+  const toggle = useCallback(() => {
     const audio = audioRef.current;
     setClicked(true);
     if (audio.paused) {
@@ -27,7 +27,20 @@ const MusicButton = () => {
     } else {
       audio.pause();
     }
-  };
+  }, []);
+
+  // Pressing M toggles the music too, unless it's part of a browser shortcut or typed into a field
+  useEffect(() => {
+    const onKeyDown = (event) => {
+      if (event.key.toLowerCase() !== 'm' || event.repeat || event.defaultPrevented) return;
+      if (event.metaKey || event.ctrlKey || event.altKey) return;
+      const { tagName, isContentEditable } = event.target;
+      if (isContentEditable || tagName === 'INPUT' || tagName === 'TEXTAREA' || tagName === 'SELECT') return;
+      toggle();
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [toggle]);
 
   return (
     <>
@@ -36,7 +49,8 @@ const MusicButton = () => {
         className={clicked ? 'music' : 'music music-bounce'}
         aria-label="Lofi music"
         aria-pressed={playing}
-        title={playing ? 'Pause music' : 'Play music'}
+        aria-keyshortcuts="M"
+        title={playing ? 'Pause music (M)' : 'Play music (M)'}
         onClick={toggle}
       >
         <NoteIcon />

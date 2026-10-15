@@ -8,7 +8,7 @@ const Header = () => (
   <header className="header">
     <h1>Hi, I’m Erik!</h1>
     <p>
-      I’m a software developer in Toronto,
+      I’m a Software Developer in Toronto,
       currently at <a href="https://www.dialogue.co/" target="_blank" rel="noopener noreferrer">Dialogue</a> and
       previously at <a href="https://www.ssense.com" target="_blank" rel="noopener noreferrer">SSENSE</a>.
       I love building robust, scalable backend systems, especially in TypeScript and Python.
