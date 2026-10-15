@@ -1,13 +1,16 @@
 import React from 'react';
+import NewsTicker from './NewsTicker';
 import './App.css';
 
 const Header = () => (
   <header className="header">
-    <h1>Erik Kostashuk</h1>
+    <h1>Hi, I’m Erik!</h1>
     <p>
-      Software Developer at <a href="https://www.dialogue.co/" target="_blank" rel="noopener noreferrer">Dialogue</a>,
+      I’m a software developer in Toronto,
+      currently at <a href="https://www.dialogue.co/" target="_blank" rel="noopener noreferrer">Dialogue</a> and
       previously at <a href="https://www.ssense.com" target="_blank" rel="noopener noreferrer">SSENSE</a>.
-      Based in Toronto.
+      I mostly work on backend systems and enjoy writing TypeScript and Python.
+      You can reach me through the links below.
     </p>
   </header>
 );
@@ -39,7 +42,7 @@ const SideProjects = () => {
 
   return (
     <section className="projects" aria-labelledby="projects-heading">
-      <h2 id="projects-heading">Side Projects</h2>
+      <h2 id="projects-heading">Things I’ve built for fun</h2>
       <ul>
         {projects.map((project) => (
           <li key={project.name}>
@@ -59,11 +62,14 @@ const SideProjects = () => {
 
 function App() {
   return (
-    <main className="app">
-      <Header />
-      <Links />
-      <SideProjects />
-    </main>
+    <>
+      <main className="app">
+        <Header />
+        <Links />
+        <SideProjects />
+      </main>
+      <NewsTicker />
+    </>
   );
 }
 

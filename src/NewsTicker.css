@@ -1,0 +1,73 @@
+@font-face {
+  font-family: 'Old Standard TT';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/old-standard-tt-400.woff2') format('woff2');
+}
+
+/* Rendered after <main> so the site's own content comes first for keyboard and
+   screen reader users; positioned over the top padding so it never shifts the layout */
+.ticker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  border-bottom: 1px solid var(--fg);
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Old Standard TT', 'Times New Roman', Times, Georgia, serif;
+  font-size: 0.9375rem;
+  line-height: 2.25rem;
+  white-space: nowrap;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll var(--ticker-duration, 240s) linear infinite;
+}
+
+.ticker:hover .ticker-track,
+.ticker:focus-within .ticker-track {
+  animation-play-state: paused;
+}
+
+.ticker-list {
+  display: flex;
+}
+
+/* Trailing space on every item, including the last, keeps the loop seam even */
+.ticker-list li {
+  padding-right: 3.5rem;
+}
+
+.ticker a {
+  text-decoration-color: transparent;
+}
+
+.ticker a:hover {
+  text-decoration-color: currentColor;
+}
+
+@keyframes ticker-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .ticker-track {
+    animation: none;
+  }
+
+  .ticker-list[aria-hidden] {
+    display: none;
+  }
+}
