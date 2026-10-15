@@ -57,7 +57,8 @@ ul {
   list-style: none;
 }
 
-a {
+a,
+.link-button {
   color: inherit;
   text-decoration: underline;
   text-decoration-color: var(--line);
@@ -66,11 +67,21 @@ a {
   transition: text-decoration-color 0.15s ease, color 0.15s ease;
 }
 
-a:hover {
+.link-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+a:hover,
+.link-button:hover {
   text-decoration-color: currentColor;
 }
 
-a:focus-visible {
+a:focus-visible,
+.link-button:focus-visible {
   outline: 2px solid var(--fg);
   outline-offset: 3px;
   border-radius: 2px;
@@ -82,7 +93,8 @@ a:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  a {
+  a,
+  .link-button {
     transition: none;
   }
 }

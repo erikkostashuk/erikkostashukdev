@@ -1,7 +1,11 @@
+import { useEffect, useState } from 'react';
 import Footer from './Footer';
 import MusicButton from './MusicButton';
 import NewsTicker from './NewsTicker';
 import './App.css';
+
+const EMAIL = 'erikkostashuk@gmail.com';
+const COPIED_DURATION_MS = 2000;
 
 const Header = () => (
   <header className="header">
@@ -16,12 +20,40 @@ const Header = () => (
   </header>
 );
 
+const CopyEmail = () => {
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (!copied) return undefined;
+    const timeout = setTimeout(() => setCopied(false), COPIED_DURATION_MS);
+    return () => clearTimeout(timeout);
+  }, [copied]);
+
+  const openMailApp = () => {
+    window.location.href = `mailto:${EMAIL}`;
+  };
+
+  const copy = () => {
+    if (!navigator.clipboard) {
+      openMailApp();
+      return;
+    }
+    navigator.clipboard.writeText(EMAIL).then(() => setCopied(true), openMailApp);
+  };
+
+  return (
+    <button type="button" className="link-button" title={`Copy ${EMAIL}`} onClick={copy}>
+      <span aria-live="polite">{copied ? 'Copied!' : 'Email'}</span>
+    </button>
+  );
+};
+
 const Links = () => (
   <nav className="links" aria-label="Links">
     <ul>
       <li><a href="https://github.com/erikkostashuk" target="_blank" rel="noopener noreferrer">GitHub</a></li>
       <li><a href="https://linkedin.com/in/erikkostashuk" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-      <li><a href="mailto:erikkostashuk@gmail.com">Email</a></li>
+      <li><CopyEmail /></li>
       <li><a href="/resume.pdf" download="Erik_Kostashuk_Resume.pdf">Resume</a></li>
     </ul>
   </nav>
