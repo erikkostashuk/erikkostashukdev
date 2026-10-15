@@ -1,4 +1,3 @@
-/* Mirrors the news ticker at the top of the page */
 .footer {
   border-top: 1px solid var(--fg);
   font-size: 0.875rem;
@@ -17,12 +16,10 @@
   text-decoration-color: currentColor;
 }
 
-/* Some symbols (the cloud especially) are solid glyphs; grey keeps them as light as the text */
 .footer-symbol {
   color: var(--muted);
 }
 
-/* On phones the line is nearly full width, so leave room below it for the fixed music button */
 @media (max-width: 36rem) {
   .footer {
     padding-bottom: 4.25rem;

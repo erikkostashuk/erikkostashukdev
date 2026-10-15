@@ -16,14 +16,12 @@
   transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
-/* The page's single pop of color */
 .music[aria-pressed='true'] {
   border-color: var(--accent);
   background: var(--accent);
   color: var(--bg);
 }
 
-/* Two staggered rings ripple outward like sound waves while music plays */
 .music[aria-pressed='true']::before,
 .music[aria-pressed='true']::after {
   content: '';
@@ -56,7 +54,6 @@
   outline-offset: 3px;
 }
 
-/* A couple of bounces shortly after load to invite a click */
 .music-bounce {
   animation: music-bounce 1.2s ease 1.2s 2;
 }
@@ -84,7 +81,6 @@
   }
 }
 
-/* Credits the track beside the button while it plays, vertically centred on it */
 .now-playing {
   position: fixed;
   right: 4.5rem;

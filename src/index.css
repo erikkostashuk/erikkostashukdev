@@ -38,7 +38,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Keeps the footer at the bottom of the screen when the page is shorter than it */
 #root {
   display: flex;
   flex-direction: column;

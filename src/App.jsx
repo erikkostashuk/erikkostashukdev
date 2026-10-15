@@ -1,4 +1,3 @@
-import React from 'react';
 import Footer from './Footer';
 import MusicButton from './MusicButton';
 import NewsTicker from './NewsTicker';

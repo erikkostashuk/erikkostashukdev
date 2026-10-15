@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 
-// A note for anyone who opens the browser console. DevTools can't use the page's web fonts, so the
-// serif falls back to Times; the white background keeps it black on white in dark-mode DevTools too
 const note = "font-family: 'Old Standard TT', 'Times New Roman', Times, Georgia, serif; color: #171717; background: #fff;";
 console.log(
   '%cHi, I’m Erik! Thanks for poking around.%c\n%cCurious how this site works? https://github.com/erikkostashuk/erikkostashukdev\nSay hi: erikkostashuk@gmail.com',

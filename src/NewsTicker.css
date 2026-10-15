@@ -1,5 +1,3 @@
-/* Rendered after <main> so the site's own content comes first for keyboard and
-   screen reader users; positioned over the top padding so it never shifts the layout */
 .ticker {
   position: absolute;
   top: 0;
@@ -30,7 +28,6 @@
   display: flex;
 }
 
-/* Trailing space on every item, including the last, keeps the loop seam even */
 .ticker-list li {
   padding-right: 3.5rem;
 }

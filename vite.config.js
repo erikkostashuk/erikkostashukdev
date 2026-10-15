@@ -8,7 +8,6 @@ export default defineConfig({
     open: true,
   },
   build: {
-    // The GitHub Pages workflow publishes ./build
     outDir: 'build',
   },
 });
