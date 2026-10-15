@@ -86,17 +86,6 @@
   color: var(--fg);
 }
 
-/* Mirrors the news ticker at the top of the page */
-.footer {
-  border-top: 1px solid var(--fg);
-  font-size: 0.875rem;
-  font-weight: 300;
-  letter-spacing: 0.02em;
-  line-height: 2.25rem;
-  text-align: center;
-  font-variant-numeric: tabular-nums;
-}
-
 @media (max-width: 36rem) {
   .app {
     padding-top: 4.5rem;

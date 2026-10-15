@@ -1,0 +1,23 @@
+/* Mirrors the news ticker at the top of the page */
+.footer {
+  border-top: 1px solid var(--fg);
+  font-size: 0.875rem;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 2.25rem;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.footer a {
+  text-decoration-color: transparent;
+}
+
+.footer a:hover {
+  text-decoration-color: currentColor;
+}
+
+/* Some symbols (the cloud especially) are solid glyphs; grey keeps them as light as the text */
+.footer-symbol {
+  color: var(--muted);
+}

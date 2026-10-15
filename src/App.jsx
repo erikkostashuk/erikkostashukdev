@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import Footer from './Footer';
 import MusicButton from './MusicButton';
 import NewsTicker from './NewsTicker';
 import './App.css';
@@ -58,35 +59,6 @@ const SideProjects = () => {
         ))}
       </ul>
     </section>
-  );
-};
-
-const torontoTime = new Intl.DateTimeFormat('en-US', {
-  hour: 'numeric',
-  minute: '2-digit',
-  timeZone: 'America/Toronto'
-});
-
-const Footer = () => {
-  const [now, setNow] = useState(() => new Date());
-
-  // Re-schedule against the clock each minute so the time flips on the minute and never drifts
-  useEffect(() => {
-    let timeout;
-    const schedule = () => {
-      timeout = setTimeout(() => {
-        setNow(new Date());
-        schedule();
-      }, 60000 - (Date.now() % 60000));
-    };
-    schedule();
-    return () => clearTimeout(timeout);
-  }, []);
-
-  return (
-    <footer className="footer">
-      Toronto · <time dateTime={now.toISOString()}>{torontoTime.format(now)}</time>
-    </footer>
   );
 };
 
